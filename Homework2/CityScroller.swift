@@ -10,8 +10,9 @@ import UIKit
 
 class CityScroller: UIScrollView {
 
-    private final let bufor: CGFloat = 100.0
-    private let buildingContainerView = UIView()
+    // this parameter can size the area of scroll, 
+    private final let bufor: CGFloat = 150.0
+    private let buildingContainerView = BuildingContainerView()
     private var visibleBuildings: [BuildingView] = []
     private var recycledViews: Set<BuildingView> = Set<BuildingView>()
     
@@ -20,8 +21,17 @@ class CityScroller: UIScrollView {
         addSubview(buildingContainerView)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
+    class BuildingContainerView: UIView {
+        override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+            for subview in subviews {
+                if !subview.isHidden &&
+                    subview.isUserInteractionEnabled &&
+                    subview.point(inside: convert(point, to: subview), with: event) {
+                    return true
+                }
+            }
+            return false
+        }
     }
     
     func setup(size: CGSize) {
@@ -29,6 +39,7 @@ class CityScroller: UIScrollView {
         buildingContainerView.frame = CGRect(origin: .zero, size: contentSize)
         backgroundColor = .blue
         indicatorStyle = .white
+        bounces = false
         
         recycledViews.formUnion(visibleBuildings)
         visibleBuildings.forEach { $0.removeFromSuperview() }
@@ -41,7 +52,6 @@ class CityScroller: UIScrollView {
         
         let visibleBounds = convert(bounds, to: buildingContainerView)
         tileBuildings(from: visibleBounds.minX, to: visibleBounds.maxX)
-        // no need to copy visibleBuildings array (?)
         centered()
     }
     
@@ -108,5 +118,11 @@ class CityScroller: UIScrollView {
             setup(size: bounds.size)
         }
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 }
+
+
+
