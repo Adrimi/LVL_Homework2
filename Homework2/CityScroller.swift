@@ -10,6 +10,7 @@ import UIKit
 
 class CityScroller: UIScrollView {
 
+    private final let bufor: CGFloat = 100.0
     private let buildingContainerView = UIView()
     private var visibleBuildings: [BuildingView] = []
     private var recycledViews: Set<BuildingView> = Set<BuildingView>()
@@ -40,15 +41,18 @@ class CityScroller: UIScrollView {
         
         let visibleBounds = convert(bounds, to: buildingContainerView)
         tileBuildings(from: visibleBounds.minX, to: visibleBounds.maxX)
-        makeInfinity()
+        // no need to copy visibleBuildings array (?)
+        centered()
     }
     
-    public func makeInfinity() {
-        if contentOffset.x > contentSize.width - 402 || contentOffset.x < 402 {
-            visibleBuildings.forEach {
-                $0.frame.origin.x = contentSize.width / 2.0
-                print("\($0.frame.origin.x)")
-            }
+    private func centered() {
+        if contentOffset.x > contentSize.width / 2.0 + bufor {
+            visibleBuildings.forEach { $0.frame.origin.x -= bufor }
+            contentOffset.x = contentSize.width / 2.0
+        }
+        if contentOffset.x < contentSize.width / 2.0 - bufor {
+            visibleBuildings.forEach { $0.frame.origin.x += bufor }
+            contentOffset.x = contentSize.width / 2.0
         }
     }
     

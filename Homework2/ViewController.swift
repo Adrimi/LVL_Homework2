@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var x: CGFloat = 0.0
-    var y: CGFloat = 0.0
-    var moonOffsetX: CGFloat = 0.0
-    var moonOffsetY: CGFloat = 0.0
+    private var x: CGFloat = 0.0
+    private var y: CGFloat = 0.0
+    private var moonOffsetX: CGFloat = 80.0
+    private var moonOffsetY: CGFloat = 80.0
     
-    final let moonSize: CGFloat = 150.0
-    final let moonParralaxStrength: CGFloat = 1.1
+    private final let moonSize: CGFloat = 150.0
+    private final let moonParralaxStrength: CGFloat = 1.06
     
     var scrollView: CityScroller {
         return view as! CityScroller
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             UIView(frame:
                 CGRect(origin: .zero, size:
                     CGSize(width: moonSize, height: moonSize)))
-        moonView.center = CGPoint(x: moonSize / 2.0 + 10.0, y: moonSize / 2.0 + 10.0)
+        moonView.center = CGPoint(x: moonSize / 1.5, y: moonSize / 1.5)
         moonView.backgroundColor = .white
         moonView.layer.cornerRadius = moonSize * 0.5
         scrollView.addSubview(moonView)
@@ -76,9 +76,9 @@ class ViewController: UIViewController {
         }
     }
     
-    private func makeMoonStationary() {
+    private func getCentered() {
         moonView.frame.origin.x = scrollView.contentOffset.x + moonOffsetX
-        // paralax effect ?
+        // paralax effect
         moonView.frame.origin.y = scrollView.contentOffset.y * moonParralaxStrength + moonOffsetY
     }
     
@@ -91,10 +91,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        makeMoonStationary()
-        if scrollView.contentOffset.x > scrollView.contentSize.width - 400 || scrollView.contentOffset.x < 400 {
-            scrollView.contentOffset.x = scrollView.contentSize.width / 2.0
-        }
+        getCentered()
     }
 }
 
