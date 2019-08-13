@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     private var moonOffset: CGPoint = CGPoint(x: 80, y: 80)
     
     private final let moonSize: CGFloat = 100.0
-    private final let moonParralaxStrength: CGFloat = 1.06
-    
+    private final let moonParralaxStrength: CGFloat = 0.94
+
     var scrollView: CityScroller {
         return view as! CityScroller
     }
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         
     }
     
+    // Moves position
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentOffset.y = scrollView.contentSize.height - view.frame.maxY
     }
@@ -77,7 +78,7 @@ class ViewController: UIViewController {
             // data for parallax
             moonOffset = CGPoint(
                 x: moonView.frame.origin.x - scrollView.contentOffset.x,
-                y: moonView.frame.origin.y - scrollView.contentOffset.y)
+                y: moonView.frame.origin.y - scrollView.contentOffset.y * moonParralaxStrength)
             scrollView.sendSubviewToBack(moonView)
             
         default:
@@ -86,9 +87,9 @@ class ViewController: UIViewController {
     }
     
     private func moonPositionFix() {
-        moonView.frame.origin.x = scrollView.contentOffset.x + moonOffset.x
+        moonView.frame.origin.x = moonOffset.x + scrollView.contentOffset.x
         // paralax effect
-        moonView.frame.origin.y = scrollView.contentOffset.y * moonParralaxStrength + moonOffset.y
+        moonView.frame.origin.y = moonOffset.y + scrollView.contentOffset.y * moonParralaxStrength
     }
 }
 

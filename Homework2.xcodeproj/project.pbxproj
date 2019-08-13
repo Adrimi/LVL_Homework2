@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F009F4E322426F1000DBF2B3 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F4E122426F1000DBF2B3 /* Misc.swift */; };
+		F009F4E422426F1000DBF2B3 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F4E222426F1000DBF2B3 /* BuildingView.swift */; };
+		F009F4E62242720500DBF2B3 /* CityScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F4E52242720500DBF2B3 /* CityScroller.swift */; };
 		F0EC86A92242451F0074B022 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC86A82242451F0074B022 /* AppDelegate.swift */; };
 		F0EC86AB2242451F0074B022 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC86AA2242451F0074B022 /* ViewController.swift */; };
 		F0EC86AE2242451F0074B022 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EC86AC2242451F0074B022 /* Main.storyboard */; };
 		F0EC86B0224245210074B022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0EC86AF224245210074B022 /* Assets.xcassets */; };
 		F0EC86B3224245210074B022 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EC86B1224245210074B022 /* LaunchScreen.storyboard */; };
-		F0EC86BC2242457F0074B022 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC86BA2242457F0074B022 /* BuildingView.swift */; };
-		F0EC86BD2242457F0074B022 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC86BB2242457F0074B022 /* Misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F009F4E122426F1000DBF2B3 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		F009F4E222426F1000DBF2B3 /* BuildingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
+		F009F4E52242720500DBF2B3 /* CityScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityScroller.swift; sourceTree = "<group>"; };
 		F0EC86A52242451F0074B022 /* Homework2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EC86A82242451F0074B022 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EC86AA2242451F0074B022 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +28,6 @@
 		F0EC86AF224245210074B022 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0EC86B2224245210074B022 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0EC86B4224245210074B022 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0EC86BA2242457F0074B022 /* BuildingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuildingView.swift; path = ../../ioslevelup_spring2019/Class2/Workshop/Assets/BuildingView.swift; sourceTree = "<group>"; };
-		F0EC86BB2242457F0074B022 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Misc.swift; path = ../../ioslevelup_spring2019/Class2/Workshop/Assets/Misc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,15 @@
 		F0EC86A72242451F0074B022 /* Homework2 */ = {
 			isa = PBXGroup;
 			children = (
+				F009F4E52242720500DBF2B3 /* CityScroller.swift */,
 				F0EC86A82242451F0074B022 /* AppDelegate.swift */,
 				F0EC86AA2242451F0074B022 /* ViewController.swift */,
 				F0EC86AC2242451F0074B022 /* Main.storyboard */,
 				F0EC86AF224245210074B022 /* Assets.xcassets */,
 				F0EC86B1224245210074B022 /* LaunchScreen.storyboard */,
 				F0EC86B4224245210074B022 /* Info.plist */,
-				F0EC86BA2242457F0074B022 /* BuildingView.swift */,
-				F0EC86BB2242457F0074B022 /* Misc.swift */,
+				F009F4E222426F1000DBF2B3 /* BuildingView.swift */,
+				F009F4E122426F1000DBF2B3 /* Misc.swift */,
 			);
 			path = Homework2;
 			sourceTree = "<group>";
@@ -141,10 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F009F4E322426F1000DBF2B3 /* Misc.swift in Sources */,
 				F0EC86AB2242451F0074B022 /* ViewController.swift in Sources */,
-				F0EC86BD2242457F0074B022 /* Misc.swift in Sources */,
-				F0EC86BC2242457F0074B022 /* BuildingView.swift in Sources */,
+				F009F4E422426F1000DBF2B3 /* BuildingView.swift in Sources */,
 				F0EC86A92242451F0074B022 /* AppDelegate.swift in Sources */,
+				F009F4E62242720500DBF2B3 /* CityScroller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Homework2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Homework2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
